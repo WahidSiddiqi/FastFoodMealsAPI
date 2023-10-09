@@ -23,3 +23,4 @@ The Backend for the FastFoodMeals App, an app which allows users to search for f
 - Cant think of any so far
 
 ## ERD
+<img width="540" alt="Screenshot 2023-10-09 at 6 33 25 AM" src="https://github.com/WahidSiddiqi/FastFoodMealsAPI/assets/12146715/2f855fce-8521-4cc5-a949-51e744bc2cd1">
