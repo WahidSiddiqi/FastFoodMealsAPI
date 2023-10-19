@@ -105,10 +105,15 @@ router.delete(
 
 router.put("/edit_item_in_meal", requireToken, async (req, res, next) => {
   try {
-    const editedItem = await MealItem.updateOne({
-      _id: new ObjectId(req.body.item_id),
-      qty: Number(req.body.qty),
-    });
+    const editedItem = await MealItem.updateOne(
+      { _id: new ObjectId(req.body.item_id) }, // <-- find stage
+      {
+        $set: {
+          // <-- set stage
+          qty: Number(req.body.qty),
+        },
+      }
+    );
     res.json({ editedItem });
   } catch (error) {
     console.error(error);
