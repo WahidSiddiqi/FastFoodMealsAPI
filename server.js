@@ -29,9 +29,19 @@ const clientDevPort = 3000;
 // establish database connection
 // use new version of URL parser
 // use createIndex instead of deprecated ensureIndex
-mongoose.connect(db, {
-  useNewUrlParser: true,
-});
+mongoose
+  .connect(db, {
+    useNewUrlParser: true,
+  })
+  .then((dbConnectionResult) => {
+    console.log(`successfully connected to db()`);
+    app.listen(port, () => {
+      console.log("listening on port " + port);
+    });
+  })
+  .catch((dbConnectionError) => {
+    console.error({ dbConnectionError });
+  });
 
 // instantiate express application object
 const app = express();
@@ -75,11 +85,6 @@ app.use(searchRoutes);
 // note that this comes after the route middlewares, because it needs to be
 // passed any error messages from them
 app.use(errorHandler);
-
-// run API on designated port (4741 in this case)
-app.listen(port, () => {
-  console.log("listening on port " + port);
-});
 
 // needed for testing
 module.exports = app;

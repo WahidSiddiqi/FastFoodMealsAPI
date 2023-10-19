@@ -23,6 +23,7 @@
     "passport-http-bearer": "^1.0.1"
   },
   "devDependencies": {
+    "@flydotio/dockerfile": "^0.4.10",
     "nodemon": "^3.0.1"
   }
 }
